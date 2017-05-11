@@ -1022,6 +1022,20 @@ glfwWindowHint(GLFW_FOCUSED, GLFW_FALSE);
 @endcode
 
 
+@subsection window_attention Window attention request
+
+If you wish to notify the user of an event without interrupting, you can request
+attention with @ref glfwRequestWindowAttention.
+
+@code
+glfwRequestWindowAttention(window);
+@endcode
+
+The system will highlight the specified window, or on platforms where this is
+not supported, the application as a whole.  Once the user has given it
+attention, the system will automatically end the request.
+
+
 @subsection window_refresh Window damage and refresh
 
 If you wish to be notified when the contents of a window is damaged and needs
