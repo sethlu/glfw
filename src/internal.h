@@ -408,6 +408,7 @@ struct _GLFWwindow
         GLFWcursorenterfun      cursorEnter;
         GLFWscrollfun           scroll;
         GLFWzoomfun             zoom;
+        GLFWrotatefun           rotate;
         GLFWkeyfun              key;
         GLFWcharfun             character;
         GLFWcharmodsfun         charmods;
@@ -715,6 +716,7 @@ void _glfwInputChar(_GLFWwindow* window,
                     unsigned int codepoint, int mods, GLFWbool plain);
 void _glfwInputScroll(_GLFWwindow* window, double xoffset, double yoffset);
 void _glfwInputZoom(_GLFWwindow* window, double z);
+void _glfwInputRotate(_GLFWwindow* window, double rotation);
 void _glfwInputMouseClick(_GLFWwindow* window, int button, int action, int mods);
 void _glfwInputCursorPos(_GLFWwindow* window, double xpos, double ypos);
 void _glfwInputCursorEnter(_GLFWwindow* window, GLFWbool entered);

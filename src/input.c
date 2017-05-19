@@ -321,6 +321,14 @@ void _glfwInputZoom(_GLFWwindow* window, double zoom)
         window->callbacks.zoom((GLFWwindow*) window, zoom);
 }
 
+// Notifies shared code of a rotate event
+//
+void _glfwInputRotate(_GLFWwindow* window, double rotation)
+{
+    if (window->callbacks.rotate)
+        window->callbacks.rotate((GLFWwindow*) window, rotation);
+}
+
 // Notifies shared code of a mouse button click event
 //
 void _glfwInputMouseClick(_GLFWwindow* window, int button, int action, int mods)
@@ -876,6 +884,15 @@ GLFWAPI GLFWzoomfun glfwSetZoomCallback(GLFWwindow* handle,
     _GLFWwindow* window = (_GLFWwindow*) handle;
     _GLFW_REQUIRE_INIT_OR_RETURN(NULL);
     _GLFW_SWAP_POINTERS(window->callbacks.zoom, cbfun);
+    return cbfun;
+}
+
+GLFWAPI GLFWzoomfun glfwSetRotateCallback(GLFWwindow* handle,
+                                          GLFWzoomfun cbfun)
+{
+    _GLFWwindow* window = (_GLFWwindow*) handle;
+    _GLFW_REQUIRE_INIT_OR_RETURN(NULL);
+    _GLFW_SWAP_POINTERS(window->callbacks.rotate, cbfun);
     return cbfun;
 }
 

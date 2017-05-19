@@ -704,6 +704,11 @@ static const NSRange kEmptyRange = { NSNotFound, 0 };
     _glfwInputZoom(window, [event magnification]);
 }
 
+- (void)rotateWithEvent:(NSEvent *)event
+{
+    _glfwInputRotate(window, [event rotation]);
+}
+
 - (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender
 {
     if ((NSDragOperationGeneric & [sender draggingSourceOperationMask])
